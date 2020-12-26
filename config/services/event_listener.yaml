@@ -1,0 +1,7 @@
+services:
+    auth_command_listener:
+        class: App\EventListener\AuthCommandListener
+        arguments:
+            - '@App\Service\UserService'
+        tags:
+            - { name: kernel.event_listener, event: console.command, method: onConsoleCommand }

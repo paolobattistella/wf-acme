@@ -15,6 +15,7 @@ PrestaShop needs the following server configuration in order to run:
 
 1. `composer install`
 2. `bin/console doctrine:database:create` to create the database `acme.db` into folder `/var/` 
+3. `bin/console doctrine:fixtures:load --group=init` to init application database
 
 ## Console commands
 

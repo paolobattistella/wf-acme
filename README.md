@@ -29,6 +29,22 @@ This parameter is the user that executes the command. It will be used to check t
 
 Only the commands `app:user:list` and `app:user:view` haven't required the parameter `id_user`.
 
+### app:permission:list
+
+To list all permissions.
+
+### app:role:list
+
+To list all roles.
+
+### app:team:list
+
+To list all teams.
+
+### app:team:view <id>
+
+To show details of given team.
+
 ### app:user:list
 
 To list all users.
@@ -44,14 +60,6 @@ To show details of given user.
 ### app:user:assign-team <id>
 
 To assign a team to given user.
-
-### app:role:list
-
-To list all roles.
-
-### app:permission:list
-
-To list all permissions.
 
 ### app:work-log:list
 

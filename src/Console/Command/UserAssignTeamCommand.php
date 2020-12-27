@@ -31,7 +31,7 @@ class UserAssignTeamCommand extends AbstractCommand
     protected function configure()
     {
         $this
-            ->setDescription('Assign a user to a time.')
+            ->setDescription('Assign a user to a team.')
             ->setHelp('This command can be executed by CEO only.')
             ->addArgument('id', InputArgument::REQUIRED, 'Choose the user ID to update.')
         ;

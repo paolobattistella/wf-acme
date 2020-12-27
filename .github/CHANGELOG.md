@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2020-12-27
+### Fixed
+- Add method `findAllExpired` to `TaskRepositoryContract`
+- Method `findAllExpired` can return none;
+
 ## [1.0.0] - 2020-12-27
 ### Added
 - Create data fixture to init application database

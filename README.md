@@ -93,6 +93,14 @@ To show details of given user.
 
 To assign a team to given user.
 
+### app:user:assign-task <id>
+
+To assign a task to given user.
+
+### app:user:drop-task <id>
+
+To drop a task from given user.
+
 ### app:work-log:list
 
 To list all work logs.

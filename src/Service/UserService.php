@@ -3,6 +3,9 @@
 namespace App\Service;
 
 use App\Entity\User;
+use App\Repository\Contract\ProjectRepositoryContract;
+use App\Repository\Contract\TaskRepositoryContract;
+use App\Repository\Contract\TaskUserRepositoryContract;
 use App\Repository\Contract\UserRepositoryContract;
 use App\Repository\Contract\PermissionRepositoryContract;
 use App\Repository\Contract\RoleRepositoryContract;
@@ -14,13 +17,25 @@ class UserService
     protected $roleRepository;
     protected $permissionRepository;
     protected $teamRepository;
+    protected $taskUserRepository;
+    protected $taskRepository;
+    protected $projectRepository;
 
-    public function __construct(UserRepositoryContract $userRepository, RoleRepositoryContract $roleRepository, PermissionRepositoryContract $permissionRepository, TeamRepositoryContract $teamRepository)
+    public function __construct(UserRepositoryContract $userRepository,
+                                RoleRepositoryContract $roleRepository,
+                                PermissionRepositoryContract $permissionRepository,
+                                TeamRepositoryContract $teamRepository,
+                                TaskRepositoryContract $taskRepository,
+                                TaskUserRepositoryContract $taskUserRepository,
+                                ProjectRepositoryContract $projectRepository)
     {
         $this->userRepository = $userRepository;
         $this->roleRepository = $roleRepository;
         $this->permissionRepository = $permissionRepository;
         $this->teamRepository = $teamRepository;
+        $this->taskRepository = $taskRepository;
+        $this->taskUserRepository = $taskUserRepository;
+        $this->projectRepository = $projectRepository;
     }
 
     public function getById(int $id): ?User
@@ -97,5 +112,43 @@ class UserService
         }
 
         return $this->userRepository->update($user, $data);
+    }
+
+    public function assignTask(User $entity, string $taskName): ?User
+    {
+        $task = $this->taskRepository->findOneWhere(['name' => $taskName]);
+
+        $taskUser = $this->taskUserRepository->store([
+            'user' => $entity,
+            'task' => $task,
+            'active' => true,
+            'status' => 'started'
+        ]);
+
+        if ($task->getStatus() === 'created') {
+            $this->taskRepository->update(
+                $task,
+                [
+                    'status' => 'started'
+                ]
+            );
+        }
+
+        return $entity;
+    }
+
+    public function dropTask(User $entity, string $taskName): ?User
+    {
+        $task = $this->taskRepository->findOneWhere(['name' => $taskName]);
+        $taskUser = $this->taskUserRepository->findOneWhere(['task' => $task->getId(), 'user' => $entity->getId()]);
+
+        $this->taskUserRepository->update(
+            $taskUser,
+            [
+                'active' => false,
+            ]
+        );
+
+        return $entity;
     }
 }

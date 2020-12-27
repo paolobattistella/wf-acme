@@ -38,7 +38,7 @@ class UserDropTaskCommand extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-//        $this->isAllowedCommand($input, $output, self::$defaultName, $this->userService);
+        $this->isAllowedCommand($input, $output, self::$defaultName, $this->userService);
 
         $id = (int)$input->getArgument('id');
         $entity = $this->userService->getById($id);

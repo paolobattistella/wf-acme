@@ -65,6 +65,10 @@ To show details of given team.
 
 To list all users.
 
+### app:user:list-tasks <id> <?status>
+
+To list all active tasks assigned to given user into given status. Status is an optional parameter.
+
 ### app:user:new
 
 To create a new user.

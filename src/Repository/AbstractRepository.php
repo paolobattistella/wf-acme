@@ -28,9 +28,14 @@ abstract class AbstractRepository implements AbstractRepositoryContract
         return $this->entityRepository->findOneBy($criteria);
     }
 
-    public function findAll()
+    public function findAll(): array
     {
         return $this->entityRepository->findAll();
+    }
+
+    public function findAllWhere(array $criteria, ?array $orderBy = null, $limit = null, $offset = null): array
+    {
+        return $this->entityRepository->findBy($criteria, $orderBy, $limit, $offset);
     }
 
     public function store(array $data)

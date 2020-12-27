@@ -45,11 +45,6 @@ class AppFixtures extends Fixture implements FixtureGroupInterface
         'app:work:out',
     ];
 
-    public static function getGroups(): array
-    {
-        return ['init'];
-    }
-
     public function load(ObjectManager $manager)
     {
         $this->manager = $manager;
@@ -113,5 +108,10 @@ class AppFixtures extends Fixture implements FixtureGroupInterface
         foreach($permissions as $permission) {
             $role->addPermission($this->permissions[$permission]);
         }
+    }
+
+    public static function getGroups(): array
+    {
+        return ['init', 'demo'];
     }
 }

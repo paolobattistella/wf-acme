@@ -53,6 +53,10 @@ To assign a PM to given project.
 
 To list all roles.
 
+### app:task:list
+
+To list all tasks.
+
 ### app:team:list
 
 To list all teams.

@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use DateTime;
 use App\Entity\Task;
 use App\Repository\Contract\ProjectRepositoryContract;
 use App\Repository\Contract\TaskRepositoryContract;
@@ -32,6 +33,9 @@ class TaskService
         if (!empty($data['project'])) {
             $project = $this->projectRepository->findOneWhere(['name' => $data['project']]);
             $data['project'] = $project;
+        }
+        if (!empty($data['deadline'])) {
+            $data['deadline'] = new DateTime($data['deadline']);
         }
         $data['status'] = 'created';
 

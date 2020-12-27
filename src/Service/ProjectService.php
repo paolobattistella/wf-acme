@@ -38,6 +38,24 @@ class ProjectService
         );
     }
 
+    public function getAllCrossed(): ?array
+    {
+        $projects = $this->getAll();
+
+        return array_filter(
+            $projects,
+            function ($project) {
+                $teams = $this->getInvolvedTeams($project->getId());
+                return count($teams) > 1;
+            }
+        );
+    }
+
+    public function getInvolvedTeams(int $projectId): ?array
+    {
+        return $this->projectRepository->findTeams($projectId, true);
+    }
+
     public function create(array $data): ?Project
     {
         if (!empty($data['pm'])) {

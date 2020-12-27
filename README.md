@@ -37,6 +37,10 @@ To list all permissions.
 
 To list all projects.
 
+### app:project:list-crossed
+
+To list all projects that involve more than one team.
+
 ### app:project:new
 
 To create a new project.

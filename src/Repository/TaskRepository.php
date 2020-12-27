@@ -13,7 +13,7 @@ class TaskRepository extends AbstractRepository implements TaskRepositoryContrac
         parent::__construct($entityManager, Task::class);
     }
 
-    public function findAllExpired(): array
+    public function findAllExpired(): ?array
     {
         $queryBuilder = $this->entityManager->createQueryBuilder();
         $queryBuilder

@@ -14,4 +14,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Create console commands: `app:team:list`, `app:team:view`
 - Create console commands: `app:project:new`, `app:project:list`, `app:project:view`, `app:project:assign-pm`
 - Create console commands: `app:user:list-tasks`
-- Create console commands: `app:task:list`, `app:task:new`
+- Create console commands: `app:task:list`, `app:task:new`, `app:task:list-expired`

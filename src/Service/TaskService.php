@@ -23,6 +23,11 @@ class TaskService
         return $this->taskRepository->findAll();
     }
 
+    public function getAllExpired(): ?array
+    {
+        return $this->taskRepository->findAllExpired();
+    }
+
     public function getById(int $id): ?Task
     {
         return $this->taskRepository->find($id);

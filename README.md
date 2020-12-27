@@ -57,6 +57,10 @@ To list all roles.
 
 To list all tasks.
 
+### app:task:list-expired
+
+To list all tasks in progress with passed deadline.
+
 ### app:team:list
 
 To list all teams.

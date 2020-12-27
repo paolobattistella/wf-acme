@@ -53,6 +53,18 @@ To list all roles.
 
 To list all permissions.
 
+### app:work-log:list
+
+To list all work logs.
+
+### app:work:in
+
+To log the start of work day.
+
+### app:work:out
+
+To log the end of work day.
+
 ## Contributing
 
 Paolo Battistella (paolo.battistella@gmail.com)

@@ -10,3 +10,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Create console commands: `app:user:new`, `app:user:list`, `app:user:view`, `app:user:assign-team`
 - Create console commands: `app:role:list`, `app:permission:list`
 - Create data fixture to write demo data into application database
+- Create console commands: `app:work-log:list`, `app:work:in`, `app:work:out`

@@ -12,4 +12,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Create data fixture to write demo data into application database
 - Create console commands: `app:work-log:list`, `app:work:in`, `app:work:out`
 - Create console commands: `app:tean:list`, `app:tean:view`
+- Create console commands: `app:project:new`, `app:project:list`, `app:project:view`, `app:project:assign-pm`
 

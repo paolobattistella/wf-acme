@@ -33,6 +33,22 @@ Only the commands `app:user:list` and `app:user:view` haven't required the param
 
 To list all permissions.
 
+### app:project:list
+
+To list all projects.
+
+### app:project:new
+
+To create a new project.
+
+### app:project:view <id>
+
+To show details of given project.
+
+### app:project:assign-pm <id>
+
+To assign a PM to given project.
+
 ### app:role:list
 
 To list all roles.
